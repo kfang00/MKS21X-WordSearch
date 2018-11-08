@@ -8,11 +8,7 @@ public class WordSearch{
      */
     public WordSearch(int rows,int cols){
         data = new char[rows][cols];
-        for (int i = 0; i < data.length; i++) {
-	    for (int a = 0; a < data[i].length; a++) {
-	        data[i][a] = '_';
-	    }
-	}
+        clear();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -39,6 +35,15 @@ public class WordSearch{
 	return grid;
     }
 
+    public char[][] before(char[][] a){
+	char[][] before = new char[a.length][a[0].length];
+	for (int i = 0; i < a.length; i++) {
+	    for (int b = 0; b < a[i].length; b++) {
+	    	before[i][b] = a[i][b];
+	    }
+	}
+	return before;
+    }
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
@@ -52,17 +57,17 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col){
-	if ((col + word.length() - 1) > data[row].length) {
+	char[][] previous = before(data);
+	if ((col + word.length()) > data[row].length) {
 	    return false;
 	}
-	for (int i = col; i < data[row].length; i++) {
-	    for (int a = 0; a < word.length(); a++) {
-		if ((data[row][i] == '_') || (data[row][i] == word.charAt(a))) { 
-	            data[row][i] = word.charAt(a);
-		}
-		else {
-		    return false;
-		}
+	for (int a = 0; a < word.length(); a++) {
+	    if ((data[row][col + a] == '_') || (data[row][col + a] == word.charAt(a))) { 
+	        data[row][col + a] = word.charAt(a);
+	    }
+	    else {
+	        data = previous;
+	        return false;
 	    }
 	}
 	return true;
@@ -80,17 +85,17 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word,int row, int col){
-	if ((row + word.length() - 1) > data.length) {
+	char[][] previous = before(data);
+	if ((row + word.length()) > data.length) {
 	    return false;
 	}
-	for (int i = row; i < data.length; i++) {
-	    for (int a = 0; a < word.length(); a++) {
-		if ((data[i][col] == '_') || (data[i][col] == word.charAt(a))) { 
-	            data[i][col] = word.charAt(a);
-		}
-		else {
-		    return false;
-		}
+        for (int a = 0; a < word.length(); a++) {
+	    if ((data[row + a][col] == '_') || (data[row + a][col] == word.charAt(a))) { 
+	        data[row + a][col] = word.charAt(a);
+	    }
+	    else {
+		data = previous;
+		return false;
 	    }
 	}
 	return true;
