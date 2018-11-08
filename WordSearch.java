@@ -34,7 +34,7 @@ public class WordSearch{
 	    for (int a = 0; a < data[i].length; a++) {
 	        grid += data[i][a] + " ";
 	    }
-	    grid += /n;
+	    grid += "\n";
 	}
 	return grid;
     }
@@ -57,7 +57,7 @@ public class WordSearch{
 	}
 	for (int i = col; i < data[row].length; i++) {
 	    for (int a = 0; a < word.length(); a++) {
-		if ((data[row][i] == '_') || (data[row][i] == word.charAt(a)) { 
+		if ((data[row][i] == '_') || (data[row][i] == word.charAt(a))) { 
 	            data[row][i] = word.charAt(a);
 		}
 		else {
@@ -85,7 +85,7 @@ public class WordSearch{
 	}
 	for (int i = row; i < data.length; i++) {
 	    for (int a = 0; a < word.length(); a++) {
-		if ((data[i][col] == '_') || (data[i][col] == word.charAt(a)) { 
+		if ((data[i][col] == '_') || (data[i][col] == word.charAt(a))) { 
 	            data[i][col] = word.charAt(a);
 		}
 		else {
