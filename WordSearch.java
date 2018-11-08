@@ -8,8 +8,8 @@ public class WordSearch{
      */
     public WordSearch(int rows,int cols){
         data = new char[rows][cols];
-        for (int i = 0; i < char.length; i++) {
-	    for (int a = 0; a < char[i].length; a++) {
+        for (int i = 0; i < data.length; i++) {
+	    for (int a = 0; a < data[i].length; a++) {
 	        data[i][a] = '_';
 	    }
 	}
@@ -17,8 +17,8 @@ public class WordSearch{
 
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear(){
-	for (int i = 0; i < char.length; i++) {
-	    for (int a = 0; a < char[i].length; a++) {
+	for (int i = 0; i < data.length; i++) {
+	    for (int a = 0; a < data[i].length; a++) {
 	        data[i][a] = '_';
 	    }
 	}
@@ -30,8 +30,8 @@ public class WordSearch{
      */
     public String toString(){
 	String grid = "";
-	for (int i = 0; i < char.length; i++) {
-	    for (int a = 0; a < char[i].length; a++) {
+	for (int i = 0; i < data.length; i++) {
+	    for (int a = 0; a < data[i].length; a++) {
 	        grid += data[i][a] + " ";
 	    }
 	    grid += /n;
@@ -52,10 +52,10 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col){
-	if ((col + word.length() - 1) > char[row].length) {
+	if ((col + word.length() - 1) > data[row].length) {
 	    return false;
 	}
-	for (int i = col; i < char[row].length; i++) {
+	for (int i = col; i < data[row].length; i++) {
 	    for (int a = 0; a < word.length(); a++) {
 		if ((data[row][i] == '_') || (data[row][i] == word.charAt(a)) { 
 	            data[row][i] = word.charAt(a);
@@ -80,10 +80,10 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word,int row, int col){
-	if ((row + word.length() - 1) > char.length) {
+	if ((row + word.length() - 1) > data.length) {
 	    return false;
 	}
-	for (int i = row; i < char.length; i++) {
+	for (int i = row; i < data.length; i++) {
 	    for (int a = 0; a < word.length(); a++) {
 		if ((data[i][col] == '_') || (data[i][col] == word.charAt(a)) { 
 	            data[i][col] = word.charAt(a);
