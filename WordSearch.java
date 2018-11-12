@@ -1,8 +1,5 @@
-import java.util.random;
-import java.util.scanner;
-import java.util.arraylist;
-import java.io.file;
-import java.io.filenotfoundexception;
+import java.util.*; //random, scanner, arraylist
+import java.io.*; //file, filenotfoundexception
 
 public class WordSearch{
     private char[][]data;
@@ -31,12 +28,46 @@ public class WordSearch{
 
     //Choose a randSeed using the clock random
     public WordSearch( int rows, int cols, String fileName) {
-
+	ArrayList<String>wordsToAdd = new ArrayList<String>();
+	ArrayList<String>wordsAdded = new ArrayList<String>();
+        data = new char[rows][cols];
+        clear();
+	randgen = new Random();
+	seed = randgen;
+	try{
+            File f = new File(fileName);//can combine
+            Scanner in = new Scanner(f);//into one line
+      
+                //NOW read the file here...
+      
+    	}catch(FileNotFoundException e){
+      	    System.out.println("File not found: " + fileName);
+            //e.printStackTrace();
+            System.exit(1);
+    	}
+	addAllWords();
     }
     
     //Use the random seed specified.
     public WordSearch( int rows, int cols, String fileName, int randSeed) {
-
+	ArrayList<String>wordsToAdd = new ArrayList<String>();
+	ArrayList<String>wordsAdded = new ArrayList<String>();
+	data = new char[rows][cols];
+        clear();
+	randgen = new Random();
+	seed = randgen;
+	try{
+            File f = new File(fileName);//can combine
+            Scanner in = new Scanner(f);//into one line
+      
+                //NOW read the file here...
+      
+    	}catch(FileNotFoundException e){
+      	    System.out.println("File not found: " + fileName);
+            //e.printStackTrace();
+            System.exit(1);
+    	}
+	addAllWords();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
