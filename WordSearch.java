@@ -1,3 +1,9 @@
+import java.util.random;
+import java.util.scanner;
+import java.util.arraylist;
+import java.io.file;
+import java.io.filenotfoundexception;
+
 public class WordSearch{
     private char[][]data;
     //the random seed used to produce this WordSearch
@@ -13,7 +19,7 @@ public class WordSearch{
     private ArrayList<String>wordsAdded;
 
 
-    /**Initialize the grid to the size specified 
+    /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param row is the starting height of the WordSearch
      *@param col is the starting width of the WordSearch
@@ -75,7 +81,7 @@ public class WordSearch{
      *@param row is the vertical locaiton of where you want the word to start.
      *@param col is the horizontal location of where you want the word to start.
      *@return true when the word is added successfully. When the word doesn't fit,
-     * or there are overlapping letters that do not match, then false is returned 
+     * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col){
@@ -84,7 +90,7 @@ public class WordSearch{
 	    return false;
 	}
 	for (int a = 0; a < word.length(); a++) {
-	    if ((data[row][col + a] == '_') || (data[row][col + a] == word.charAt(a))) { 
+	    if ((data[row][col + a] == '_') || (data[row][col + a] == word.charAt(a))) {
 	        data[row][col + a] = word.charAt(a);
 	    }
 	    else {
@@ -112,7 +118,7 @@ public class WordSearch{
 	    return false;
 	}
         for (int a = 0; a < word.length(); a++) {
-	    if ((data[row + a][col] == '_') || (data[row + a][col] == word.charAt(a))) { 
+	    if ((data[row + a][col] == '_') || (data[row + a][col] == word.charAt(a))) {
 	        data[row + a][col] = word.charAt(a);
 	    }
 	    else {
@@ -139,7 +145,7 @@ public class WordSearch{
 	    return false;
 	}
         for (int a = 0; a < word.length(); a++) {
-	    if ((data[row + a][col + a] == '_') || (data[row + a][col + a] == word.charAt(a))) { 
+	    if ((data[row + a][col + a] == '_') || (data[row + a][col + a] == word.charAt(a))) {
 	        data[row + a][col + a] = word.charAt(a);
 	    }
 	    else {
