@@ -249,7 +249,8 @@ public class WordSearch{
 	int colinc = 0;
 	String wordChosen = "";
 	boolean yes = false;
-	while (wordsToAdd.size() > 0) {
+	int fails = 0;
+	while ((wordsToAdd.size() > 0) && (fails < 100)) {
 	    wordChosen = wordsToAdd.get(Math.abs(randgen.nextInt() % wordsToAdd.size()));
 	    yes = false;
 	    rowinc = randgen.nextInt() % 2;
@@ -265,9 +266,11 @@ public class WordSearch{
 	    if (yes == true) {
 		wordsToAdd.remove(wordChosen);
 		wordsAdded.add(wordChosen);
+		fails = 0;
 	    }
 	    else {
 		wordsToAdd.remove(wordChosen);
+		fails += 1;
 	    }
 	}
 
