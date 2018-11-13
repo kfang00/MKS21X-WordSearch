@@ -67,7 +67,7 @@ public class WordSearch{
 	File f = new File(file);//can combine
         Scanner in = new Scanner(f);//into one line
 	while(in.hasNext()){
-            wordsToAdd.add(in.nextLine());
+            wordsToAdd.add(in.nextLine().toUpperCase());
 	}
     }
 
@@ -245,9 +245,31 @@ public class WordSearch{
      */
 
     private void addAllWords() { 
-	
-	for (int c = 0; c < 200; c++) {
-	    if (addWord((wordsToAdd.get(randgen.nextInt() % wordsToAdd.size())), (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), (rand.nextInt() % data[0].length), (rand.nextInt() % data[0].length)) != true) {
+	int rowinc = 0;
+	int colinc = 0;
+	String wordChosen = "";
+	boolean yes = false;
+	while (wordsToAdd.size() > 0) {
+	    wordChosen = wordsToAdd.get(Math.abs(randgen.nextInt() % wordsToAdd.size()));
+	    yes = false;
+	    rowinc = randgen.nextInt() % 2;
+	    colinc = randgen.nextInt() % 2;
+	    for (int c = 0; c < 200; c++) {
+		if (addWord(wordChosen, (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), rowinc, colinc) == true) {
+            	    yes = true;
+		}
+		if (yes == false) {
+		    addWord(wordChosen, (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), rowinc, colinc);
+		}
+	    }
+	    if (yes == true) {
+		wordsToAdd.remove(wordChosen);
+		wordsAdded.add(wordChosen);
+	    }
+	    else {
+		wordsToAdd.remove(wordChosen);
+	    }
+	}
 
     }
 }
