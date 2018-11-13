@@ -35,10 +35,7 @@ public class WordSearch{
 	randgen = new Random();
 	seed = randgen;
 	try{
-            File f = new File(fileName);//can combine
-            Scanner in = new Scanner(f);//into one line
-      
-                //NOW read the file here...
+            readFile(fileName);
       
     	}catch(FileNotFoundException e){
       	    System.out.println("File not found: " + fileName);
@@ -57,10 +54,7 @@ public class WordSearch{
 	randgen = new Random();
 	seed = randgen;
 	try{
-            File f = new File(fileName);//can combine
-            Scanner in = new Scanner(f);//into one line
-      
-                //NOW read the file here...
+            readFile(fileName);
       
     	}catch(FileNotFoundException e){
       	    System.out.println("File not found: " + fileName);
@@ -68,6 +62,13 @@ public class WordSearch{
             System.exit(1);
     	}
 	addAllWords();
+    }
+    public void readFile(String file) throws FileNotFoundException {
+	File f = new File(file);//can combine
+        Scanner in = new Scanner(f);//into one line
+	while(in.hasNext()){
+            wordsToAdd.add(in.nextLine());
+	}
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
