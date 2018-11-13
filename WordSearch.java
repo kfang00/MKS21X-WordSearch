@@ -255,7 +255,7 @@ public class WordSearch{
 	    rowinc = randgen.nextInt() % 2;
 	    colinc = randgen.nextInt() % 2;
 	    for (int c = 0; c < 200; c++) {
-		if (addWord(wordChosen, (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), rowinc, colinc) == true) {
+		if ((yes == false) && (addWord(wordChosen, (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), rowinc, colinc) == true)) {
             	    yes = true;
 		}
 		if (yes == false) {
