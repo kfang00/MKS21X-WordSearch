@@ -42,7 +42,7 @@ public class WordSearch{
             //e.printStackTrace();
             System.exit(1);
     	}
-	addAllWords();
+	//addAllWords();
     }
     
     //Use the random seed specified.
@@ -61,7 +61,7 @@ public class WordSearch{
             //e.printStackTrace();
             System.exit(1);
     	}
-	addAllWords();
+	//addAllWords();
     }
     public void readFile(String file) throws FileNotFoundException {
 	File f = new File(file);//can combine
@@ -88,7 +88,7 @@ public class WordSearch{
 	String grid = "";
 	String mod = "";
 	for (int i = 0; i < data.length; i++) {
-	    grid += "|"
+	    grid += "|";
 	    for (int a = 0; a < data[i].length; a++) {
 	        grid += data[i][a] + " ";
 	    }
@@ -206,7 +206,7 @@ public class WordSearch{
      *        false when: the word doesn't fit, OR  rowchange and colchange are both 0,
      *        OR there are overlapping letters that do not match
      */
-    private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+    public boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
 	char[][] previous = before(data);
 	if ((rowIncrement == 0) && (colIncrement == 0)) {
 		return false;
@@ -217,13 +217,13 @@ public class WordSearch{
 	    if (rowIncrement < 0) {
 		rows = (a * -1);
 	    }
-	    else if ((rowIncrement > 0) {
+	    else if ((rowIncrement > 0)) {
 		rows = a;
 	    }
 	    if (colIncrement < 0) {
 		cols = (a * -1);
 	    }
-	    else if ((colIncrement > 0) {
+	    else if ((colIncrement > 0)) {
 		cols = a;
 	    }
 	    if (((row + rows) > data.length) || ((col + cols) > data[0].length) ) {
@@ -257,11 +257,11 @@ public class WordSearch{
 	    rowinc = randgen.nextInt() % 2;
 	    colinc = randgen.nextInt() % 2;
 	    for (int c = 0; c < 200; c++) {
-		if ((yes == false) && (addWord(wordChosen, (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), rowinc, colinc) == true)) {
+		if ((yes == false) && (addWord(wordChosen, (randgen.nextInt() % data.length), (randgen.nextInt() % data[0].length), rowinc, colinc) == true)) {
             	    yes = true;
 		}
 		if (yes == false) {
-		    addWord(wordChosen, (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), rowinc, colinc);
+		    addWord(wordChosen, (randgen.nextInt() % data.length), (randgen.nextInt() % data[0].length), rowinc, colinc);
 		}
 	    }
 	    if (yes == true) {
