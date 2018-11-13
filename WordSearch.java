@@ -86,12 +86,16 @@ public class WordSearch{
      */
     public String toString(){
 	String grid = "";
+	String mod = "";
 	for (int i = 0; i < data.length; i++) {
+	    grid += "|"
 	    for (int a = 0; a < data[i].length; a++) {
 	        grid += data[i][a] + " ";
 	    }
-	    grid += "\n";
+	    grid += "|" + "\n";
 	}
+	mod = wordsAdded.toString().substring(1, (this.length() - 1));
+	grid += "Words: " + mod + "(seed: " + seed + ")";
 	return grid;
     }
 
@@ -188,9 +192,6 @@ public class WordSearch{
 	return true;
     }
 
-    public String toString() {
-	return "";
-    }
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added in the direction rowIncrement,colIncrement 
