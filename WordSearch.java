@@ -33,7 +33,6 @@ public class WordSearch{
         data = new char[rows][cols];
         clear();
 	randgen = new Random();
-	seed = randgen;
 	try{
             readFile(fileName);
       
@@ -51,8 +50,8 @@ public class WordSearch{
 	ArrayList<String>wordsAdded = new ArrayList<String>();
 	data = new char[rows][cols];
         clear();
-	randgen = new Random();
-	seed = randgen;
+	randgen = new Random(randSeed);
+	seed = randSeed;
 	try{
             readFile(fileName);
       
@@ -245,7 +244,7 @@ public class WordSearch{
      *[ 0,-1] would add towards the left because (col - 1), with no row change
      */
 
-    private void addAllWords() { 
+    public void addAllWords() { 
 	int rowinc = 0;
 	int colinc = 0;
 	String wordChosen = "";
