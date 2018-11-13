@@ -244,7 +244,10 @@ public class WordSearch{
      *[ 0,-1] would add towards the left because (col - 1), with no row change
      */
 
-    private void addAllWords() {
+    private void addAllWords() { 
+	
+	for (int c = 0; c < 200; c++) {
+	    if (addWord((wordsToAdd.get(randgen.nextInt() % wordsToAdd.size())), (rand.nextInt() % data.length), (rand.nextInt() % data[0].length), (rand.nextInt() % data[0].length), (rand.nextInt() % data[0].length)) != true) {
 
     }
 }
