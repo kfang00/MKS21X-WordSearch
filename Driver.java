@@ -1,10 +1,10 @@
-public class Driver_Test {
+public class Driver {
 
   public static void main(String[] args) {
 
-    WordSearch WSe = new WordSearch(10,14,"words.txt");
+    WordSearch WSe = new WordSearch(10,14);
 
-    System.out.println("WordSearch WSe = new WordSearch(10,14,\"words.txt\")");
+    System.out.println("WordSearch WSe = new WordSearch(10,14)");
     System.out.println(WSe);
     /*
       |_ _ _ _ _ _ _ _ _ _ _ _ _ _|
