@@ -280,11 +280,11 @@ public class WordSearch{
 	}
     }
 
-    private fillInRandomLetters() {
+    private void fillInRandomLetters() {
 	for (int a = 0; a < data.length(); a++) {
 	    for (int c = 0; c < data[0].length(); c++) {
 		if (data[a][c] == '_') {
-		    data[a][c] = ((char)("A" + Math.abs(randgen.nextInt() % 27));
+		    data[a][c] = ((char)("A" + Math.abs(randgen.nextInt() % 27)));
 		}
 	    }
 	}
