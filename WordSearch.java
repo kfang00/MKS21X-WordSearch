@@ -32,7 +32,8 @@ public class WordSearch{
 	ArrayList<String>wordsAdded = new ArrayList<String>();
         data = new char[rows][cols];
         clear();
-	randgen = new Random();
+	seed = (int)(Math.random()*100000);
+	randgen = new Random(seed);
 	try{
             readFile(fileName);
       
@@ -86,6 +87,7 @@ public class WordSearch{
     public String toString(){
 	String grid = "";
 	String mod = "";
+	String mod2 = "";
 	for (int i = 0; i < data.length; i++) {
 	    grid += "|";
 	    for (int a = 0; a < data[i].length; a++) {
@@ -93,8 +95,9 @@ public class WordSearch{
 	    }
 	    grid += "|" + "\n";
 	}
-	mod = wordsAdded.toString().substring(1, (this.length() - 1));
-	grid += "Words: " + mod + "(seed: " + seed + ")";
+	mod = wordsAdded.toString();
+	mod2 = mod.substring(1, (mod.length() - 1));
+	grid += "Words: " + mod2 + "(seed: " + seed + ")";
 	return grid;
     }
 
