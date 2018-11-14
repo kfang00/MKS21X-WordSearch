@@ -278,7 +278,8 @@ public class WordSearch{
 		fails += 1;
 	    }
 	}
-	
+    }
+
     private fillInRandomLetters() {
 	for (int a = 0; a < data.length(); a++) {
 	    for (int c = 0; c < data[0].length(); c++) {
@@ -290,6 +291,14 @@ public class WordSearch{
 
     }
 
+    public static void main(String[]args) {
+	if(args.length > 0){
+            seed = Integer.parseInt(args[3]);
+	    row = Integer.parseInt(args[0]);
+	    col = Integer.parseInt(args[1]);
+	    fname = args[3];
+	    WordSearch(row, col, fname, seed);
+        }
     }
 
 }
