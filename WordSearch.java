@@ -28,8 +28,8 @@ public class WordSearch{
 
     //Choose a randSeed using the clock random
     public WordSearch( int rows, int cols, String fileName) {
-	ArrayList<String>wordsToAdd = new ArrayList<String>();
-	ArrayList<String>wordsAdded = new ArrayList<String>();
+	wordsToAdd = new ArrayList<String>();
+	wordsAdded = new ArrayList<String>();
         data = new char[rows][cols];
         clear();
 	seed = (int)(Math.random()*100000);
@@ -47,8 +47,8 @@ public class WordSearch{
     
     //Use the random seed specified.
     public WordSearch( int rows, int cols, String fileName, int randSeed) {
-	ArrayList<String>wordsToAdd = new ArrayList<String>();
-	ArrayList<String>wordsAdded = new ArrayList<String>();
+	wordsToAdd = new ArrayList<String>();
+	wordsAdded = new ArrayList<String>();
 	data = new char[rows][cols];
         clear();
 	randgen = new Random(randSeed);
@@ -69,6 +69,7 @@ public class WordSearch{
 	while(in.hasNext()){
             wordsToAdd.add(in.nextLine().toUpperCase());
 	}
+	in.close();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -95,9 +96,9 @@ public class WordSearch{
 	    }
 	    grid += "|" + "\n";
 	}
-	mod = wordsAdded.toString();
-	mod2 = mod.substring(1, (mod.length() - 1));
-	grid += "Words: " + mod2 + "(seed: " + seed + ")";
+	//mod = wordsAdded.toString();
+	//mod2 = mod.substring(1, (mod.length() - 1));
+	//grid += "Words: " + mod2 + "(seed: " + seed + ")";
 	return grid;
     }
 
@@ -228,8 +229,9 @@ public class WordSearch{
 	    else if ((colIncrement > 0)) {
 		cols = a;
 	    }
-	    if (((row + rows) > data.length) || ((col + cols) > data[0].length) ) {
-	        return false;
+	    if (((row + rows) == data.length) || ((row + rows) < 0) || ((col + cols) == data[0].length) || ((col + cols) < 0)) {
+	        data = previous;
+		return false;
 	    }
 	    if ((data[row + rows][col + cols] == '_') || (data[row + rows][col + cols] == word.charAt(a))) {
 	        data[row + rows][col + cols] = word.charAt(a);
@@ -278,4 +280,5 @@ public class WordSearch{
 	}
 
     }
+
 }
