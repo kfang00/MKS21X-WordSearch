@@ -42,7 +42,7 @@ public class WordSearch{
             //e.printStackTrace();
             System.exit(1);
     	}
-	//addAllWords();
+	addAllWords();
     }
     
     //Use the random seed specified.
@@ -61,7 +61,7 @@ public class WordSearch{
             //e.printStackTrace();
             System.exit(1);
     	}
-	//addAllWords();
+	addAllWords();
     }
     public void readFile(String file) throws FileNotFoundException {
 	File f = new File(file);//can combine
@@ -96,9 +96,9 @@ public class WordSearch{
 	    }
 	    grid += "|" + "\n";
 	}
-	//mod = wordsAdded.toString();
-	//mod2 = mod.substring(1, (mod.length() - 1));
-	//grid += "Words: " + mod2 + "(seed: " + seed + ")";
+	mod = wordsAdded.toString();
+	mod2 = mod.substring(1, (mod.length() - 1));
+	grid += "Words: " + mod2 + "(seed: " + seed + ")";
 	return grid;
     }
 
@@ -209,7 +209,7 @@ public class WordSearch{
      *        false when: the word doesn't fit, OR  rowchange and colchange are both 0,
      *        OR there are overlapping letters that do not match
      */
-    public boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+    private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
 	char[][] previous = before(data);
 	if ((rowIncrement == 0) && (colIncrement == 0)) {
 		return false;
@@ -249,7 +249,7 @@ public class WordSearch{
      *[ 0,-1] would add towards the left because (col - 1), with no row change
      */
 
-    public void addAllWords() { 
+    private void addAllWords() { 
 	int rowinc = 0;
 	int colinc = 0;
 	String wordChosen = "";
