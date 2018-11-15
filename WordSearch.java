@@ -281,10 +281,10 @@ public class WordSearch{
     }
 
     private void fillInRandomLetters() {
-	for (int a = 0; a < data.length(); a++) {
-	    for (int c = 0; c < data[0].length(); c++) {
+	for (int a = 0; a < data.length; a++) {
+	    for (int c = 0; c < data[0].length; c++) {
 		if (data[a][c] == ' ') {
-		    data[a][c] = ((char)("A" + Math.abs(randgen.nextInt() % 27)));
+		    data[a][c] = ((char)('A' + Math.abs(randgen.nextInt() % 27)));
 		}
 	    }
 	}
@@ -292,17 +292,19 @@ public class WordSearch{
     }
 
     public static void main(String[]args) {
+	int seed = 0 ;
 	if(args.length > 0){
-	    row = Integer.parseInt(args[0]);
-	    col = Integer.parseInt(args[1]);
-	    fname = args[2];
-	    if (args.length > 3) {
-            	seed = Integer.parseInt(args[3]);
-	    	WordSearch(row, col, fname, seed);
+	    if (args.length > 4) {
+	    }
+	    else if (args.length > 3) {
+		seed = Integer.parseInt(args[3]);
+	    	WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2], seed);
 	    }
 	    else {
-		WordSearch(row, col, fname);
+		WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2]);
+		System.out.println(w.toString());
 	    }
+	    
 	    
         }
     }
