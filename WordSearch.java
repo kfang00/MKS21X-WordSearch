@@ -76,7 +76,7 @@ public class WordSearch{
     private void clear(){
 	for (int i = 0; i < data.length; i++) {
 	    for (int a = 0; a < data[i].length; a++) {
-	        data[i][a] = '_';
+	        data[i][a] = ' ';
 	    }
 	}
     }
@@ -129,7 +129,7 @@ public class WordSearch{
 	    return false;
 	}
 	for (int a = 0; a < word.length(); a++) {
-	    if ((data[row][col + a] == '_') || (data[row][col + a] == word.charAt(a))) {
+	    if ((data[row][col + a] == ' ') || (data[row][col + a] == word.charAt(a))) {
 	        data[row][col + a] = word.charAt(a);
 	    }
 	    else {
@@ -157,7 +157,7 @@ public class WordSearch{
 	    return false;
 	}
         for (int a = 0; a < word.length(); a++) {
-	    if ((data[row + a][col] == '_') || (data[row + a][col] == word.charAt(a))) {
+	    if ((data[row + a][col] == ' ') || (data[row + a][col] == word.charAt(a))) {
 	        data[row + a][col] = word.charAt(a);
 	    }
 	    else {
@@ -184,7 +184,7 @@ public class WordSearch{
 	    return false;
 	}
         for (int a = 0; a < word.length(); a++) {
-	    if ((data[row + a][col + a] == '_') || (data[row + a][col + a] == word.charAt(a))) {
+	    if ((data[row + a][col + a] == ' ') || (data[row + a][col + a] == word.charAt(a))) {
 	        data[row + a][col + a] = word.charAt(a);
 	    }
 	    else {
@@ -233,7 +233,7 @@ public class WordSearch{
 	        data = previous;
 		return false;
 	    }
-	    if ((data[row + rows][col + cols] == '_') || (data[row + rows][col + cols] == word.charAt(a))) {
+	    if ((data[row + rows][col + cols] == ' ') || (data[row + rows][col + cols] == word.charAt(a))) {
 	        data[row + rows][col + cols] = word.charAt(a);
 	    }
 	    else {
@@ -283,7 +283,7 @@ public class WordSearch{
     private void fillInRandomLetters() {
 	for (int a = 0; a < data.length(); a++) {
 	    for (int c = 0; c < data[0].length(); c++) {
-		if (data[a][c] == '_') {
+		if (data[a][c] == ' ') {
 		    data[a][c] = ((char)("A" + Math.abs(randgen.nextInt() % 27)));
 		}
 	    }
@@ -293,11 +293,17 @@ public class WordSearch{
 
     public static void main(String[]args) {
 	if(args.length > 0){
-            seed = Integer.parseInt(args[3]);
 	    row = Integer.parseInt(args[0]);
 	    col = Integer.parseInt(args[1]);
-	    fname = args[3];
-	    WordSearch(row, col, fname, seed);
+	    fname = args[2];
+	    if (args.length > 3) {
+            	seed = Integer.parseInt(args[3]);
+	    	WordSearch(row, col, fname, seed);
+	    }
+	    else {
+		WordSearch(row, col, fname);
+	    }
+	    
         }
     }
 
