@@ -257,15 +257,12 @@ public class WordSearch{
 	int fails = 0;
 	while ((wordsToAdd.size() > 0) && (fails < 100)) {
 	    wordChosen = wordsToAdd.get(Math.abs(randgen.nextInt() % wordsToAdd.size()));
-	    yes = false;
+	    yes = true;
 	    rowinc = randgen.nextInt() % 2;
 	    colinc = randgen.nextInt() % 2;
-	    for (int c = 0; c < 200; c++) {
-		if ((yes == false) && (addWord(wordChosen, (randgen.nextInt() % data.length), (randgen.nextInt() % data[0].length), rowinc, colinc) == true)) {
+	    for (int c = 0; c < 200 && !yes; c++) {
+		if (addWord(wordChosen, (randgen.nextInt() % data.length), (randgen.nextInt() % data[0].length), rowinc, colinc)) {
             	    yes = true;
-		}
-		if (yes == false) {
-		    addWord(wordChosen, (randgen.nextInt() % data.length), (randgen.nextInt() % data[0].length), rowinc, colinc);
 		}
 	    }
 	    if (yes == true) {
