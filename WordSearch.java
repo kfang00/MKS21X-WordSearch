@@ -45,9 +45,12 @@ public class WordSearch{
 	randgen = new Random(randSeed);
 	seed = randSeed;
 	if (ans == false) {
+	    addAllWords()
 	    fillInRandomLetters();
 	}
-	addAllWords();
+	else {
+	    addAllWords();
+	}
     }
 
     public void helper(int R, int C, String FN) {
