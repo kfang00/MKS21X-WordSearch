@@ -45,7 +45,7 @@ public class WordSearch{
 	randgen = new Random(randSeed);
 	seed = randSeed;
 	if (ans == false) {
-	    addAllWords()
+	    addAllWords();
 	    fillInRandomLetters();
 	}
 	else {
