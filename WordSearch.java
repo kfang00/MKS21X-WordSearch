@@ -286,7 +286,7 @@ public class WordSearch{
 	for (int a = 0; a < data.length; a++) {
 	    for (int c = 0; c < data[0].length; c++) {
 		if (data[a][c] == ' ') {
-		    data[a][c] = ((char)('A' + Math.abs(randgen.nextInt() % 27)));
+		    data[a][c] = ((char)('A' + Math.abs(randgen.nextInt() % 26)));
 		}
 	    }
 	}
@@ -296,6 +296,17 @@ public class WordSearch{
     public static void main(String[]args) {
 	int seed = 0 ;
 	boolean a = false;
+	try{
+            Integer.parseInt(args[0]);
+	    Integer.parseInt(args[1]);
+	    if (args.length > 3) {
+		Integer.parseInt(args[3]);
+	}
+      
+    	}catch(NumberFormatException e){
+      	    System.out.println("Numerical arguments are improperly formatted!! (must be int)");
+            System.exit(1);
+    	}
 	if(args.length < 3){
 	    System.out.println("Not enough arguments to run the program!! You must have three or more!!");
 	}	
@@ -303,23 +314,16 @@ public class WordSearch{
 	    if ((Integer.parseInt(args[0]) < 0) || (Integer.parseInt(args[1]) < 0)) {
 		System.out.println("Numerical argument out of range!! Row/col must be > 0!!");
 	    }
-	    if ((args.length > 3) && ((seed < 0) || (seed > 10000))) {
-		System.out.println("Numerical argument out of range!! The seed must be from 0 to 10000 inclusive!");
-	    }
-	    try{
-                Integer.parseInt(args[0]);
-		Integer.parseInt(args[1]);
-		if (args.length > 3) {
-		    Integer.parseInt(args[3]);
-		}
-      
-    	    }catch(NumberFormatException e){
-      	        System.out.println("Numerical arguments are improperly formatted!! (must be int)");
-                System.exit(1);
-    	    }
-	    if (args.length > 4) {
+	    
+	    if (args.length > 3) {
 		seed = Integer.parseInt(args[3]);
-		if (args[4] == "key") {
+		if ((seed < 0) || (seed > 10000)) {
+		    System.out.println("Numerical argument out of range!! The seed must be from 0 to 10000 inclusive!");
+		}
+	    }
+	    else if (args.length > 4) {
+		seed = Integer.parseInt(args[3]);
+		if (args[4].equals("key")) {
 		    a = true;
 		}
 		else {
