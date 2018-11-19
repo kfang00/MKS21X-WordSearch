@@ -48,6 +48,9 @@ public class WordSearch{
 	helper(rows, cols, fileName);
 	randgen = new Random(randSeed);
 	seed = randSeed;
+	if (ans == false) {
+	    fillInRandomLetters();
+	}
 	addAllWords();
     }
 
@@ -293,6 +296,7 @@ public class WordSearch{
 
     public static void main(String[]args) {
 	int seed = 0 ;
+	boolean a = false;
 	if(args.length < 3){
 	    System.out.println("Not enough arguments to run the program!! You must have three or more!!");
 	}	
@@ -306,13 +310,24 @@ public class WordSearch{
 	    try{
                 Integer.parseInt(args[0]);
 		Integer.parseInt(args[1]);
-		Integer.parseInt(args[3]);
+		if (args.length > 3) {
+		    Integer.parseInt(args[3]);
+		}
       
     	    }catch(NumberFormatException e){
       	        System.out.println("Numerical arguments are improperly formatted!! (must be int)");
                 System.exit(1);
     	    }
-	    else if (args.length > 4) {
+	    if (args.length > 4) {
+		seed = Integer.parseInt(args[3]);
+		if (args[4] == "key") {
+		    a = true;
+		}
+		else {
+		    a = false;
+		}
+	        WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2], seed, a);
+	        System.out.println(w.toString());
 	    }
 	    else if (args.length > 3) {
 	        seed = Integer.parseInt(args[3]);
