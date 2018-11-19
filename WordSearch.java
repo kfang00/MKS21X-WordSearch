@@ -62,7 +62,7 @@ public class WordSearch{
             readFile(FN);
       
     	}catch(FileNotFoundException e){
-      	    System.out.println("1. Check if you have enough arguments to run the program. You must have three or more!! \n 2. Check if you have the right file name. \n 3. Check if your numerical arguments are properly formatted!! (must be int) \n 4. Check if your numerical arguments are out of range. Row/col must be > 0 and the seed must be from 0 to 10000 inclusive!");
+      	    System.out.println(" 1. Check if you have enough arguments to run the program. You must have three or more!! \n 2. Check if you have the right file name. \n 3. Check if your numerical arguments are properly formatted!! (must be int) \n 4. Check if your numerical arguments are out of range. Row/col must be > 0 and the seed must be from 0 to 10000 inclusive!");
             //e.printStackTrace();
             System.exit(1);
     	}
@@ -296,7 +296,7 @@ public class WordSearch{
     public static void main(String[]args) {
 	int seed = 0 ;
 	boolean a = false;
-	String s = "1. Check if you have enough arguments to run the program. You must have three or more!! \n 2. Check if you have the right file name. \n 3. Check if your numerical arguments are properly formatted!! (must be int) \n 4. Check if your numerical arguments are out of range. Row/col must be > 0 and the seed must be from 0 to 10000 inclusive!";
+	String s = " 1. Check if you have enough arguments to run the program. You must have three or more!! \n 2. Check if you have the right file name. \n 3. Check if your numerical arguments are properly formatted!! (must be int) \n 4. Check if your numerical arguments are out of range. Row/col must be > 0 and the seed must be from 0 to 10000 inclusive!";
 	try{
             Integer.parseInt(args[0]);
 	    Integer.parseInt(args[1]);
