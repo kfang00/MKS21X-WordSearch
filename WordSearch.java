@@ -32,10 +32,19 @@ public class WordSearch{
 	seed = (int)(Math.random() * 10000);
 	randgen = new Random(seed);
 	addAllWords();
+	fillInRandomLetters();
     }
     
     //Use the random seed specified.
     public WordSearch( int rows, int cols, String fileName, int randSeed) {
+	helper(rows, cols, fileName);
+	randgen = new Random(randSeed);
+	seed = randSeed;
+	addAllWords();
+	fillInRandomLetters();
+    }
+
+    public WordSearch( int rows, int cols, String fileName, int randSeed, boolean ans) {
 	helper(rows, cols, fileName);
 	randgen = new Random(randSeed);
 	seed = randSeed;
@@ -51,7 +60,7 @@ public class WordSearch{
             readFile(FN);
       
     	}catch(FileNotFoundException e){
-      	    System.out.println("File not found: " + fileName);
+      	    System.out.println("File not found: " + FN);
             //e.printStackTrace();
             System.exit(1);
     	}
