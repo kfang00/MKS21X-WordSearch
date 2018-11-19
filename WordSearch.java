@@ -21,10 +21,6 @@ public class WordSearch{
      *@param row is the starting height of the WordSearch
      *@param col is the starting width of the WordSearch
      */
-    public WordSearch(int rows,int cols){
-        data = new char[rows][cols];
-        clear();
-    }
 
     //Choose a randSeed using the clock random
     public WordSearch( int rows, int cols, String fileName) {
