@@ -32,7 +32,7 @@ public class WordSearch{
 	wordsAdded = new ArrayList<String>();
         data = new char[rows][cols];
         clear();
-	seed = (int)(Math.random()*100000);
+	seed = (int)(Math.random() * 10000);
 	randgen = new Random(seed);
 	try{
             readFile(fileName);
@@ -63,6 +63,7 @@ public class WordSearch{
     	}
 	addAllWords();
     }
+
     public void readFile(String file) throws FileNotFoundException {
 	File f = new File(file);//can combine
         Scanner in = new Scanner(f);//into one line
@@ -290,21 +291,21 @@ public class WordSearch{
 
     public static void main(String[]args) {
 	int seed = 0 ;
-	if(args.length > 0){
-	    if (args.length > 4) {
-	    }
-	    else if (args.length > 3) {
-		seed = Integer.parseInt(args[3]);
-	    	WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2], seed);
-		System.out.println(w.toString());
-	    }
-	    else {
-		WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2]);
-		System.out.println(w.toString());
-	    }
-	    
-	    
-        }
+	if(args.length < 3){
+	    System.out.println("Not enough arguments to run the program!! You must have three or more!!");
+	}	
+	if (args.length > 4) {
+	}
+	else if (args.length > 3) {
+	    seed = Integer.parseInt(args[3]);
+	    WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2], seed);
+	    System.out.println(w.toString());
+	}
+	else {
+	    WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2]);
+	    System.out.println(w.toString());
+	}
+	   
     }
 
 }
