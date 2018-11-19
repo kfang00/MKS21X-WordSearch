@@ -310,19 +310,22 @@ public class WordSearch{
     	}
 	if(args.length < 3){
 	    System.out.println(s);
+	    System.exit(1);
 	}	
 	else {
 	    if ((Integer.parseInt(args[0]) < 0) || (Integer.parseInt(args[1]) < 0)) {
 		System.out.println(s);
+		System.exit(1);
 	    }
 	    
 	    if (args.length > 3) {
 		seed = Integer.parseInt(args[3]);
 		if ((seed < 0) || (seed > 10000)) {
 		    System.out.println(s);
+		    System.exit(1);
 		}
 	    }
-	    else if (args.length > 4) {
+	    if (args.length > 4) {
 		seed = Integer.parseInt(args[3]);
 		if (args[4].equals("key")) {
 		    a = true;
