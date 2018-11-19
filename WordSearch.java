@@ -28,40 +28,33 @@ public class WordSearch{
 
     //Choose a randSeed using the clock random
     public WordSearch( int rows, int cols, String fileName) {
-	wordsToAdd = new ArrayList<String>();
-	wordsAdded = new ArrayList<String>();
-        data = new char[rows][cols];
-        clear();
+	helper(rows, cols, fileName);
 	seed = (int)(Math.random() * 10000);
 	randgen = new Random(seed);
-	try{
-            readFile(fileName);
-      
-    	}catch(FileNotFoundException e){
-      	    System.out.println("File not found: " + fileName);
-            //e.printStackTrace();
-            System.exit(1);
-    	}
 	addAllWords();
     }
     
     //Use the random seed specified.
     public WordSearch( int rows, int cols, String fileName, int randSeed) {
-	wordsToAdd = new ArrayList<String>();
-	wordsAdded = new ArrayList<String>();
-	data = new char[rows][cols];
-        clear();
+	helper(rows, cols, fileName);
 	randgen = new Random(randSeed);
 	seed = randSeed;
+	addAllWords();
+    }
+
+    public void helper(int R, int C, String FN) {
+	wordsToAdd = new ArrayList<String>();
+	wordsAdded = new ArrayList<String>();
+	data = new char[R][C];
+        clear();
 	try{
-            readFile(fileName);
+            readFile(FN);
       
     	}catch(FileNotFoundException e){
       	    System.out.println("File not found: " + fileName);
             //e.printStackTrace();
             System.exit(1);
     	}
-	addAllWords();
     }
 
     public void readFile(String file) throws FileNotFoundException {
