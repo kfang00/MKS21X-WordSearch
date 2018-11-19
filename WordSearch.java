@@ -257,18 +257,18 @@ public class WordSearch{
 	int fails = 0;
 	while ((wordsToAdd.size() > 0) && (fails < 100)) {
 	    wordChosen = wordsToAdd.get(Math.abs(randgen.nextInt() % wordsToAdd.size()));
-	    yes = true;
 	    rowinc = randgen.nextInt() % 2;
 	    colinc = randgen.nextInt() % 2;
 	    for (int c = 0; c < 200 && !yes; c++) {
 		if (addWord(wordChosen, (randgen.nextInt() % data.length), (randgen.nextInt() % data[0].length), rowinc, colinc)) {
-            	    yes = true;
+		    yes = true;
 		}
 	    }
 	    if (yes == true) {
 		wordsToAdd.remove(wordChosen);
 		wordsAdded.add(wordChosen);
 		fails = 0;
+		yes = false;
 	    }
 	    else {
 		wordsToAdd.remove(wordChosen);
@@ -296,6 +296,7 @@ public class WordSearch{
 	    else if (args.length > 3) {
 		seed = Integer.parseInt(args[3]);
 	    	WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2], seed);
+		System.out.println(w.toString());
 	    }
 	    else {
 		WordSearch w = new WordSearch(Integer.parseInt(args[0]),Integer.parseInt(args[1]),args[2]);
