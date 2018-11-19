@@ -121,7 +121,7 @@ homeless
 tip
 amount
 roomy
-bite-sized
+bitesized
 cup
 attraction
 flow
@@ -171,7 +171,6 @@ disturbed
 unlock
 uptight
 alive
-black-and-white
 rely
 mellow
 pen
@@ -220,7 +219,6 @@ hurt
 mountain
 welcome
 satisfying
-second-hand
 different
 pipe
 achiever
@@ -289,7 +287,6 @@ spark
 insurance
 somber
 steel
-old-fashioned
 spray
 children
 wind
